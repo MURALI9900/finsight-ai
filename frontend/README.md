@@ -19,7 +19,7 @@ A responsive Angular 19 standalone application for the FinSight AI synthetic ban
 
 ## Demo data and integration status
 
-All names, references, balances, counts and observations are fictional. The frontend currently uses local in-memory sample data. It is not connected to the Spring Boot API, PostgreSQL database or FastAPI AI service. The AI assistant is a UI preview with canned responses, not a live generative AI integration.
+All names, references, balances, counts and observations are fictional. The frontend uses local in-memory sample data and works without an external service. It is not connected to a running Spring Boot API, PostgreSQL database or FastAPI AI service. The repository retains the backend and AI-service source code, Docker configuration and automated checks; these are not continuously hosted. The AI assistant is a local prototype with canned responses, not a live generative AI integration.
 
 The app is configured for the GitHub Pages project path `/finsight-ai/`. GitHub Actions builds the production bundle before publishing it.
 
