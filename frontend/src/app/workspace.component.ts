@@ -2,6 +2,8 @@ import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { DashboardService } from './dashboard.service';
+import { DashboardSummary } from './dashboard-summary.model';
 
 type Section = 'overview' | 'customers' | 'accounts' | 'loans' | 'transactions' | 'assistant';
 
@@ -11,13 +13,13 @@ type Section = 'overview' | 'customers' | 'accounts' | 'loans' | 'transactions' 
   imports: [RouterLink],
   template: `
     @if (section === 'overview') {
-      <div class="page-heading"><div><div class="eyebrow">MONITORING CENTER</div><h1>Banking overview</h1><p class="muted">A snapshot of your demo banking portfolio.</p></div><button class="primary-button" (click)="refresh()">↻ Refresh overview</button></div>
+      <div class="page-heading"><div><div class="eyebrow">MONITORING CENTER</div><h1>Banking overview</h1><p class="muted">A snapshot of your demo banking portfolio.</p></div><div class="heading-actions"><span class="api-status" [class.connected]="apiState === 'connected'">{{apiState === 'connected' ? 'API CONNECTED' : apiState === 'loading' ? 'CONNECTING…' : 'DEMO DATA'}}</span><button class="primary-button" (click)="refresh()">↻ Refresh overview</button></div></div>
       <div class="notice"><span>ⓘ</span><div><strong>Portfolio demonstration</strong><p>All figures and records are synthetic and are not connected to a real financial institution.</p></div></div>
       <div class="metrics-grid">
-        <article class="metric-card"><div class="metric-top"><span>Total customers</span><span class="metric-icon blue">♙</span></div><strong>1,250</strong><small class="positive">↑ 8.2% <span>vs. previous month</span></small></article>
-        <article class="metric-card"><div class="metric-top"><span>Active accounts</span><span class="metric-icon violet">▣</span></div><strong>1,875</strong><small class="positive">↑ 5.4% <span>vs. previous month</span></small></article>
-        <article class="metric-card"><div class="metric-top"><span>Active loans</span><span class="metric-icon amber">◫</span></div><strong>432</strong><small class="positive">↑ 3.1% <span>vs. previous month</span></small></article>
-        <article class="metric-card"><div class="metric-top"><span>Transactions</span><span class="metric-icon teal">⇄</span></div><strong>18,450</strong><small class="positive">↑ 12.6% <span>vs. previous month</span></small></article>
+        <article class="metric-card"><div class="metric-top"><span>Total customers</span><span class="metric-icon blue">♙</span></div><strong>{{dashboard.totalCustomers.toLocaleString('en-IN')}}</strong><small class="positive">↑ 8.2% <span>vs. previous month</span></small></article>
+        <article class="metric-card"><div class="metric-top"><span>Active accounts</span><span class="metric-icon violet">▣</span></div><strong>{{dashboard.totalAccounts.toLocaleString('en-IN')}}</strong><small class="positive">↑ 5.4% <span>vs. previous month</span></small></article>
+        <article class="metric-card"><div class="metric-top"><span>Active loans</span><span class="metric-icon amber">◫</span></div><strong>{{dashboard.activeLoans.toLocaleString('en-IN')}}</strong><small class="positive">↑ 3.1% <span>vs. previous month</span></small></article>
+        <article class="metric-card"><div class="metric-top"><span>Transactions</span><span class="metric-icon teal">⇄</span></div><strong>{{dashboard.monthlyTransactions.toLocaleString('en-IN')}}</strong><small class="positive">↑ 12.6% <span>vs. previous month</span></small></article>
       </div>
       <div class="dashboard-grid">
         <article class="panel chart-panel"><div class="panel-heading"><div><h2>Portfolio movement</h2><p class="muted">Illustrative monthly deposits and loan balances</p></div><span class="period-pill">LAST 6 MONTHS</span></div><div class="chart-legend"><span><i class="legend-blue"></i> Deposits</span><span><i class="legend-violet"></i> Loans</span></div><div class="bar-chart" role="img" aria-label="Illustrative bar chart showing deposits and loans over six months"><div class="bar-group"><div class="bars"><i style="height:48%"></i><b style="height:32%"></b></div><small>JUN</small></div><div class="bar-group"><div class="bars"><i style="height:58%"></i><b style="height:40%"></b></div><small>JUL</small></div><div class="bar-group"><div class="bars"><i style="height:53%"></i><b style="height:44%"></b></div><small>AUG</small></div><div class="bar-group"><div class="bars"><i style="height:70%"></i><b style="height:49%"></b></div><small>SEP</small></div><div class="bar-group"><div class="bars"><i style="height:78%"></i><b style="height:56%"></b></div><small>OCT</small></div><div class="bar-group"><div class="bars"><i style="height:90%"></i><b style="height:62%"></b></div><small>NOV</small></div></div></article>
@@ -50,8 +52,15 @@ type Section = 'overview' | 'customers' | 'accounts' | 'loans' | 'transactions' 
 })
 export class WorkspaceComponent implements OnInit, OnDestroy {
   private readonly route = inject(ActivatedRoute);
+  private readonly dashboardService = inject(DashboardService);
   private routeSubscription?: Subscription;
   section: Section = 'overview';
+  apiState: 'loading' | 'connected' | 'demo' = 'demo';
+  dashboard: DashboardSummary = {
+    demoData: true, currency: 'INR', totalCustomers: 1250, totalAccounts: 1875,
+    activeLoans: 432, monthlyTransactions: 18450, totalDeposits: 128450000,
+    totalOutstandingLoans: 76250000, asOfDate: '2026-11-26'
+  };
   searchText = '';
   noticeText = '';
   questionDraft = '';
@@ -79,13 +88,28 @@ export class WorkspaceComponent implements OnInit, OnDestroy {
     this.routeSubscription = this.route.data.subscribe(data => {
       this.section = (data['section'] as Section | undefined) ?? 'overview';
       this.searchText = '';
+      if (this.section === 'overview') this.loadDashboard();
     });
   }
 
   ngOnDestroy(): void { this.routeSubscription?.unsubscribe(); }
 
   refresh(): void {
-    this.noticeText = 'Demo overview refreshed. The displayed sample figures are unchanged.';
+    this.loadDashboard();
+  }
+
+  private loadDashboard(): void {
+    this.apiState = 'loading';
+    this.dashboardService.getSummary().subscribe({
+      next: summary => {
+        this.dashboard = summary;
+        this.apiState = 'connected';
+      },
+      error: () => {
+        // GitHub Pages is a static host; keep the portfolio usable until an API is deployed.
+        this.apiState = 'demo';
+      }
+    });
   }
 
   ask(event: Event): void {
