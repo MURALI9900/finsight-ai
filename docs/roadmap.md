@@ -1,57 +1,57 @@
 # Implementation Roadmap
 
-Work in small milestones suitable for 1–2 hours per day. Mark an item complete only after it runs and has been checked.
+Mark work complete only after the implementation and its relevant checks have been verified.
 
 ## Milestone 0 — Repository foundation
 - [x] Create public GitHub repository
-- [x] Add project overview and architecture notes
-- [x] Add ignore rules and demo-data policy
-- [ ] Add initial application skeletons
+- [x] Add architecture, API and demo-data documentation
+- [x] Add ignore rules and security guidance
 
-## Milestone 1 — Local development foundation
-- [ ] Add Docker Compose PostgreSQL
-- [ ] Add database schema and synthetic seed data
-- [ ] Create Spring Boot service with health endpoint
-- [ ] Create Angular application shell
-- [ ] Verify all components locally
+## Milestone 1 — Application foundations
+- [x] Add Spring Boot service foundation and health endpoint
+- [x] Add FastAPI service foundation and health endpoint
+- [x] Add Angular 19 application shell
+- [x] Configure responsive styling and GitHub Pages hash routing
+- [x] Add GitHub Actions build and test workflow
+- [x] Verify Angular production build, Spring Boot tests and FastAPI tests in GitHub Actions
 
-## Milestone 2 — Banking API
+## Milestone 2 — Angular banking demo experience
+- [x] Overview dashboard with synthetic metrics
+- [x] Customers directory and search
+- [x] Accounts view with fictional masked references
+- [x] Loan portfolio summary
+- [x] Transactions view and search
+- [x] AI Assistant preview with local sample responses
+- [ ] Add fuller loading, empty and error states across all screens
+- [ ] Add focused Angular component and routing tests
+- [ ] Verify the Angular GitHub Pages deployment and live URL
+
+## Milestone 3 — Banking API
 - [ ] Account summary endpoint
 - [ ] Transaction list, pagination and filters
 - [ ] Spending aggregation endpoint
 - [ ] Validation and global exception handling
 - [ ] Unit and integration tests
-
-## Milestone 3 — Dashboard experience
-- [ ] Responsive overview dashboard
-- [ ] Transaction table and filters
-- [ ] Spending charts
-- [ ] Loading, empty and error states
-- [ ] Connect UI to real API responses
+- [ ] Connect Angular screens to verified API responses
 
 ## Milestone 4 — AI assistant
-- [ ] FastAPI service skeleton
 - [ ] Curated fictional banking FAQ/document set
 - [ ] Retrieval pipeline and citations to retrieved demo documents
-- [ ] Chat UI and safe fallback behaviour
-- [ ] AI integration tests
+- [ ] Connect chat UI to FastAPI
+- [ ] AI integration tests and safe fallback behaviour
 
 ## Milestone 5 — Loan insights and hardening
-- [ ] Explainable demo loan estimate rules
-- [ ] Clearly show assumptions and limitations
+- [ ] Explainable demo loan estimate rules and assumptions
 - [ ] Authentication and role-based access for demo users
-- [ ] Security review and dependency checks
+- [ ] Security and dependency review
 
-## Milestone 6 — Delivery
-- [ ] Dockerfiles and production configuration
-- [ ] GitHub Actions build and test workflow
-- [ ] Deployment and smoke tests
-- [ ] Screenshots and short walkthrough video
-- [ ] LinkedIn launch post
+## Milestone 6 — Portfolio delivery
+- [ ] Verify deployment and capture screenshots
+- [ ] Prepare a short project walkthrough
+- [ ] Publish a LinkedIn project post
 
 ## Working agreement
-
-- One small feature per work session.
-- Commit only code that builds or explain clearly why it is a WIP.
+- Work in small, reviewable steps.
+- Keep README and roadmap aligned with verified implementation.
 - Never use real customer, employer or bank information.
-- Keep README setup instructions aligned with the actual implementation.
+- Keep backend and AI integration marked as pending until implemented and tested.
