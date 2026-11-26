@@ -52,9 +52,9 @@ Exact request and response contracts will be documented as endpoints are impleme
 
 Docker Compose will provide PostgreSQL for local development. Frontend, backend and AI service can initially run independently for faster feedback, then be containerised.
 
-## Deployment shape
+## GitHub-only portfolio deployment
 
-Deploy the frontend as a static web application and deploy API services plus PostgreSQL on a compatible host. Use managed database storage where possible. Configure secrets through the hosting provider's environment settings, never in Git.
+The public portfolio runs as a static Angular application on GitHub Pages. GitHub Actions builds and validates the Spring Boot and FastAPI source code, and can build/publish the backend container image to GitHub Container Registry. GitHub Pages cannot execute server-side applications, and GitHub Actions runners are temporary jobs rather than always-on servers. Therefore, the live frontend uses local synthetic data and does not claim that the APIs or database are running. The backend, AI service and PostgreSQL architecture remain documented source-code components for future deployment if a free runtime is available.
 
 ## Quality attributes
 
