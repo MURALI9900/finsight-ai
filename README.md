@@ -1,68 +1,71 @@
 # FinSight AI — Intelligent Banking Platform
 
-A portfolio-grade full-stack banking analytics application combining Java, Spring Boot, Angular, PostgreSQL and Generative AI.
+A portfolio-grade banking analytics application built to demonstrate full-stack engineering with Java, Spring Boot, Angular, TypeScript and AI-service foundations.
 
-> **Status:** Project foundation / MVP in progress  
-> **Important:** This is an educational portfolio project. It uses synthetic demo data only. It is not connected to any real bank and must not be used for real financial decisions.
+> **Project status:** Angular frontend implemented; GitHub Pages deployment is being validated. Backend and AI services are foundations only and are not yet connected to the frontend.
+>
+> **Demo safety:** Educational portfolio project using fictional customers, accounts, loans and transactions only. It is not connected to a real bank and must not be used for financial decisions.
 
-## Vision
+## Live demo
 
-FinSight AI demonstrates how a modern banking application can combine reliable backend engineering with AI-assisted insights. The platform will provide a banking overview, transaction analytics, loan insights and a retrieval-augmented AI assistant over a curated demo knowledge base.
+- **GitHub Pages:** https://murali9900.github.io/finsight-ai/
+- **Source code:** https://github.com/MURALI9900/finsight-ai
 
-## Planned capabilities
+The published page will be switched from the original static preview to the Angular application only after the Angular Pages workflow succeeds.
 
-- Banking overview dashboard with synthetic account and transaction metrics
-- Transaction listing, filtering and categorisation
-- Spending analytics and visual summaries
-- Explainable loan eligibility insights using demo rules and clearly labelled estimates
-- AI assistant grounded in a controlled demo knowledge base (RAG)
-- REST APIs with validation, error handling and API documentation
-- Containerised local development and automated tests
+## Angular frontend
+
+The Angular 19 + TypeScript application includes:
+
+- Overview dashboard with synthetic banking metrics
+- Customers directory with search
+- Accounts view with fictional masked account references
+- Loan portfolio summary
+- Transactions list with search
+- AI Assistant preview with local sample responses (not connected to a live LLM)
+
+The app uses responsive styling and hash-based routing for GitHub Pages. All displayed records and metrics are synthetic.
 
 ## Technology
 
-| Area | Planned technology |
+| Area | Technology / status |
 |---|---|
-| Frontend | Angular, TypeScript |
-| Core API | Java 17, Spring Boot |
-| AI API | Python, FastAPI |
+| Frontend | Angular 19, TypeScript |
+| Core API | Java 17, Spring Boot — foundation; UI integration pending |
+| AI API | Python, FastAPI — foundation; UI integration pending |
 | Data | PostgreSQL |
-| Retrieval | pgvector (planned) |
-| Messaging | Kafka (later milestone) |
-| Local environment | Docker Compose |
-| CI | GitHub Actions |
-
-The initial milestone keeps the architecture intentionally small: one Spring Boot API, one Angular frontend and one optional Python AI service. Kafka and additional services will be introduced only when there is a concrete use case.
+| Vector retrieval | pgvector — planned |
+| CI | GitHub Actions build and test workflow |
+| Hosting | GitHub Pages workflow for Angular frontend |
 
 ## Repository layout
 
 ```text
 frontend/          Angular application
-backend/           Spring Boot banking API
-ai-service/        Python FastAPI AI service
-database/          Schema and synthetic seed data
-infrastructure/    Docker Compose and deployment assets
-docs/              Architecture, API and project notes
-tests/             Cross-component and end-to-end tests
+backend/           Spring Boot API foundation
+ai-service/        Python FastAPI service foundation
+infrastructure/    Docker Compose and infrastructure notes
+docs/              Architecture, API, roadmap and demo-data policy
+.github/workflows/ GitHub Actions build, test and Pages deployment
 ```
 
-## Getting started
-
-The application code and local run instructions will be added incrementally. Start with the architecture and project milestones:
+## Project documentation
 
 - [Architecture](docs/architecture.md)
 - [Roadmap](docs/roadmap.md)
+- [API contract](docs/api-contract.md)
 - [Security and demo-data policy](docs/security-and-demo-data.md)
+- [Frontend details](frontend/README.md)
 
 ## Development principles
 
-1. Keep banking data synthetic and clearly labelled.
-2. Never commit passwords, tokens, API keys, certificates or customer data.
+1. Use synthetic data only; never commit real customer, employer or bank information.
+2. Never commit passwords, tokens, API keys or certificates.
 3. Validate and authorise every API operation on the server.
-4. Keep AI responses grounded in the demo knowledge base; show uncertainty and avoid presenting outputs as financial advice.
+4. Keep AI responses grounded in a controlled demo knowledge base and clearly disclose limitations.
 5. Add tests and documentation alongside each feature.
-6. Prefer small, reviewable commits.
+6. Keep changes small and reviewable.
 
 ## Portfolio disclosure
 
-This project is independently developed for learning and portfolio demonstration. Product names, accounts, customers and transactions shown in screenshots or seed data are fictional.
+This project is independently developed for learning and portfolio demonstration. Product names, accounts, customers, loans and transactions shown in the application are fictional.
