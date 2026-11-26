@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: finsight-banking-api
+    runtime: docker
+    plan: free
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: SERVER_PORT
+        value: "10000"
+      - key: JAVA_TOOL_OPTIONS
+        value: "-XX:MaxRAMPercentage=65.0 -XX:+UseSerialGC"
