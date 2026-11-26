@@ -5,19 +5,17 @@
 - Angular frontend: deployed as a static site with GitHub Pages.
 - Spring Boot backend: source code and Docker image build are maintained in this repository.
 - GitHub Actions: runs tests and validates that the backend Docker image can be built.
-- Live backend runtime: not deployed yet.
+- Live backend runtime: intentionally not deployed; the portfolio uses a browser-based demo.
 
 ## Important GitHub limitation
 
 GitHub Pages serves static files. It does not run a continuously available Spring Boot process or provide a managed PostgreSQL server. GitHub Actions runners are temporary build environments, not application servers.
 
-Therefore, the frontend dashboard API request will continue to use clearly labelled synthetic demo data until a public backend API URL is configured.
+Therefore, the live frontend uses clearly labelled synthetic local data. It does not send failing API requests or imply that a backend is running.
 
 ## GitHub-only preparation
 
-The `Backend container validation` workflow builds the backend Docker image on GitHub-hosted runners. It does not publish the image or expose an API endpoint.
-
-A later hosting step can publish the validated image to GitHub Container Registry (GHCR) and run it on a compatible application host, or connect this repository to a compatible container hosting provider.
+GitHub Actions validates the backend source and Docker build. The repository also retains the backend container image in GitHub Container Registry (GHCR). GHCR stores the image but does not run it as a server. No external hosting provider is part of the selected plan.
 
 ## Backend container contract
 
@@ -30,4 +28,4 @@ A later hosting step can publish the validated image to GitHub Container Registr
 
 ## Safety
 
-Use fictional demo data only. Do not commit API keys, database credentials, tokens, private certificates, or real customer/bank information. Configure future runtime secrets in the host's secret manager.
+Use fictional demo data only. Do not commit API keys, database credentials, tokens, private certificates, or real customer/bank information. If a runtime is ever added in the future, configure secrets through that runtime's secret manager; never commit them to Git.
