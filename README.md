@@ -2,7 +2,7 @@
 
 A portfolio-grade banking analytics application built to demonstrate full-stack engineering with Java, Spring Boot, Angular, TypeScript and AI-service foundations.
 
-> **Project status:** Angular frontend implemented; GitHub Pages deployment is being validated. Backend and AI services are foundations only and are not yet connected to the frontend.
+> **Project status:** Angular frontend is published on GitHub Pages. Spring Boot and FastAPI services are maintained as source-code foundations with automated validation; they are not continuously hosted. The live demo runs entirely in the browser using synthetic sample data.
 >
 > **Demo safety:** Educational portfolio project using fictional customers, accounts, loans and transactions only. It is not connected to a real bank and must not be used for financial decisions.
 
@@ -11,7 +11,7 @@ A portfolio-grade banking analytics application built to demonstrate full-stack 
 - **GitHub Pages:** https://murali9900.github.io/finsight-ai/
 - **Source code:** https://github.com/MURALI9900/finsight-ai
 
-The published page will be switched from the original static preview to the Angular application only after the Angular Pages workflow succeeds.
+The Angular application is published through the GitHub Pages workflow.
 
 ## Angular frontend
 
@@ -31,12 +31,12 @@ The app uses responsive styling and hash-based routing for GitHub Pages. All dis
 | Area | Technology / status |
 |---|---|
 | Frontend | Angular 19, TypeScript |
-| Core API | Java 17, Spring Boot — foundation; UI integration pending |
-| AI API | Python, FastAPI — foundation; UI integration pending |
+| Core API | Java 17, Spring Boot — source code, Docker build and CI validation; no live runtime |
+| AI API | Python, FastAPI — source code and CI validation; no live runtime or external LLM |
 | Data | PostgreSQL |
 | Vector retrieval | pgvector — planned |
 | CI | GitHub Actions build and test workflow |
-| Hosting | GitHub Pages workflow for Angular frontend |
+| Hosting | GitHub Pages for static frontend; GitHub Actions for build and tests |
 
 ## Repository layout
 
