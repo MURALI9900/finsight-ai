@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1220">
+<meta name="description" content="FinSight AI — intelligent banking analytics demo built with Java, Spring Boot, Angular-ready architecture and AI services.">
+<title>FinSight AI | Banking Intelligence</title>
+<style>
+:root{--bg:#0b1220;--panel:#111c2e;--panel2:#152238;--line:#24334a;--muted:#91a2ba;--text:#edf4ff;--blue:#68a8ff;--cyan:#55d6cf;--green:#45d49a;--amber:#f3bd62;--red:#ff7c86}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 75% -10%,#1d3b61 0,transparent 38%),var(--bg);color:var(--text);font:14px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+button,input{font:inherit}.shell{display:flex;min-height:100vh}.sidebar{width:248px;padding:26px 18px;border-right:1px solid var(--line);background:#0d1727;display:flex;flex-direction:column}.brand{display:flex;gap:11px;align-items:center;padding:0 10px 30px}.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,#65b6ff,#4ce0c4);display:grid;place-items:center;color:#061321;font-weight:900;font-size:19px}.brand strong{font-size:16px;letter-spacing:.2px}.brand small{display:block;color:var(--muted);font-size:10px;letter-spacing:1.6px}.nav-label{padding:14px 12px 8px;color:#687d99;font-size:10px;font-weight:800;letter-spacing:1.4px}.nav button{width:100%;text-align:left;border:0;background:transparent;color:#9aacc5;padding:11px 13px;border-radius:9px;margin:2px 0;cursor:pointer}.nav button.active,.nav button:hover{background:#1a2c45;color:#fff}.nav button span{display:inline-block;width:26px;color:#76b8ff}.side-bottom{margin-top:auto;padding:16px 12px;color:var(--muted);font-size:11px;border-top:1px solid var(--line)}.main{flex:1;min-width:0;padding:26px clamp(18px,3vw,42px) 40px;max-width:1600px;margin:auto}.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:28px}.eyebrow{color:var(--cyan);font-size:10px;font-weight:800;letter-spacing:1.7px}.topbar h1{font-size:25px;margin:3px 0 0;letter-spacing:-.6px}.top-actions{display:flex;align-items:center;gap:10px}.pill{border:1px solid var(--line);background:#122037;color:#c8d8ee;border-radius:999px;padding:8px 12px;font-size:11px}.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#294d70;color:#dff4ff;font-weight:700}.welcome{display:flex;justify-content:space-between;align-items:end;margin:0 0 20px}.welcome h2{font-size:18px;margin:0 0 3px}.welcome p{margin:0;color:var(--muted);font-size:12px}.date{color:var(--muted);font-size:11px}.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.metric,.panel{background:linear-gradient(145deg,rgba(21,34,56,.98),rgba(16,27,45,.98));border:1px solid var(--line);border-radius:14px}.metric{padding:17px 18px;min-height:130px}.metric-head{display:flex;justify-content:space-between;color:var(--muted);font-size:11px}.metric-icon{width:29px;height:29px;border-radius:9px;background:#1d3655;display:grid;place-items:center;color:var(--blue);font-size:15px}.metric-value{font-size:25px;font-weight:750;letter-spacing:-.7px;margin:12px 0 4px}.metric-foot{font-size:10px;color:var(--green)}.metric-foot span{color:var(--muted);margin-left:4px}.grid-main{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);gap:15px;margin-top:16px}.panel{padding:18px}.panel-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.panel-title h3{margin:0;font-size:13px}.panel-title small{color:var(--muted);font-size:10px}.select{background:#172941;border:1px solid var(--line);border-radius:7px;color:#b9cce3;padding:6px 9px;font-size:10px}.chart-wrap{height:205px;position:relative}.chart{width:100%;height:100%;overflow:visible}.chart text{fill:#8297b2;font-size:10px}.legend{display:flex;gap:16px;margin-top:10px;color:var(--muted);font-size:10px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px}.donut-area{display:flex;align-items:center;justify-content:space-around;gap:12px;min-height:190px}.donut{width:148px;height:148px;border-radius:50%;background:conic-gradient(#62aaff 0 44%,#55d6cf 44% 72%,#f3bd62 72% 88%,#34465f 88% 100%);display:grid;place-items:center;position:relative}.donut:before{content:"";position:absolute;width:103px;height:103px;background:#142238;border-radius:50%}.donut-center{position:relative;text-align:center}.donut-center strong{display:block;font-size:20px}.donut-center small{color:var(--muted);font-size:9px}.legend-list{display:grid;gap:12px;min-width:110px}.legend-row{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:10px}.legend-row b{color:#e7f0ff;font-size:10px}.bottom-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(260px,1fr);gap:15px;margin-top:15px}.search{background:#0e1a2b;border:1px solid var(--line);border-radius:7px;padding:7px 10px;color:#eaf2ff;width:155px;font-size:10px;outline:none}.table-wrap{overflow-x:auto}table{border-collapse:collapse;width:100%;white-space:nowrap}th{text-align:left;color:#758ba7;font-size:9px;letter-spacing:.8px;font-weight:700;padding:10px 8px;border-bottom:1px solid var(--line)}td{padding:12px 8px;border-bottom:1px solid #203049;color:#c6d5e8;font-size:10px}tbody tr:last-child td{border-bottom:0}.customer{display:flex;align-items:center;gap:8px}.initial{width:25px;height:25px;border-radius:8px;background:#25415e;display:grid;place-items:center;color:#a9d5ff;font-size:9px;font-weight:800}.customer b{display:block;color:#edf4ff;font-size:10px}.customer small{color:#8297b2;font-size:9px}.status{border-radius:999px;padding:4px 7px;font-size:9px;background:#153d35;color:#65ddb0}.status.pending{background:#47391f;color:#f3c779}.status.review{background:#3b2940;color:#d7a0ec}.insight{display:flex;gap:11px;padding:12px 0;border-bottom:1px solid var(--line)}.insight:last-child{border:0}.insight-icon{width:30px;height:30px;flex:none;border-radius:9px;background:#1e3b58;display:grid;place-items:center;color:var(--cyan)}.insight b{display:block;font-size:10px;margin-bottom:3px}.insight p{margin:0;color:var(--muted);font-size:10px}.ai-tag{font-size:9px;color:var(--cyan);border:1px solid #27605e;border-radius:5px;padding:2px 5px;margin-left:5px}.footer{display:flex;justify-content:space-between;gap:12px;color:#70849f;font-size:9px;padding:18px 2px}.footer a{color:#8ebfff;text-decoration:none}.notice{margin-top:18px;padding:10px 13px;border:1px solid #314c69;background:#12253b;border-radius:9px;color:#a9bfd9;font-size:10px}.mobile-menu{display:none}
+@media(max-width:1050px){.metrics{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.sidebar{display:none}.main{padding:18px 14px 28px}.topbar{margin-bottom:22px}.topbar h1{font-size:21px}.welcome{align-items:start;gap:10px;flex-direction:column}.grid-main,.bottom-grid{grid-template-columns:1fr}.top-actions .pill{display:none}.metrics{gap:9px}.metric{padding:13px;min-height:118px}.metric-value{font-size:21px}.metric-head{font-size:10px}.donut-area{justify-content:center}.footer{flex-direction:column}.search{width:120px}}
+@media(max-width:380px){.metrics{grid-template-columns:1fr 1fr}.metric-value{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar">
+ <div class="brand"><div class="logo">F</div><div><strong>FinSight AI</strong><small>BANKING INTELLIGENCE</small></div></div>
+ <div class="nav-label">WORKSPACE</div><nav class="nav">
+ <button class="active" data-view="overview"><span>▦</span>Overview</button>
+ <button data-view="customers"><span>♙</span>Customers</button>
+ <button data-view="accounts"><span>▤</span>Accounts</button>
+ <button data-view="loans"><span>◈</span>Loan portfolio</button>
+ <button data-view="transactions"><span>⇄</span>Transactions</button>
+ </nav>
+ <div class="nav-label">INTELLIGENCE</div><nav class="nav">
+ <button data-view="insights"><span>✧</span>AI Insights</button>
+ <button data-view="risk"><span>⌁</span>Risk monitor</button>
+ </nav>
+ <div class="side-bottom">● Demo environment<br><br>FinSight AI · Portfolio project<br>All data is synthetic</div>
+</aside>
+<main class="main">
+ <header class="topbar"><div><div class="eyebrow">FINANCIAL OPERATIONS PLATFORM</div><h1 id="page-title">Banking Overview</h1></div><div class="top-actions"><span class="pill">◉ &nbsp; DEMO MODE</span><span class="pill" id="today">26 Nov 2026</span><div class="avatar">MR</div></div></header>
+ <section class="welcome"><div><h2>Good evening 👋</h2><p>Here’s what’s happening across your demo banking portfolio.</p></div><div class="date">Reporting currency: <b style="color:#eaf2ff">INR ₹</b> &nbsp;·&nbsp; Updated just now</div></section>
+ <section class="metrics">
+  <article class="metric"><div class="metric-head">Total customers <span class="metric-icon">♙</span></div><div class="metric-value">1,250</div><div class="metric-foot">↗ 8.4% <span>vs previous month</span></div></article>
+  <article class="metric"><div class="metric-head">Total accounts <span class="metric-icon">▤</span></div><div class="metric-value">1,875</div><div class="metric-foot">↗ 5.2% <span>vs previous month</span></div></article>
+  <article class="metric"><div class="metric-head">Active loans <span class="metric-icon">◈</span></div><div class="metric-value">432</div><div class="metric-foot">↗ 3.1% <span>vs previous month</span></div></article>
+  <article class="metric"><div class="metric-head">Monthly transactions <span class="metric-icon">⇄</span></div><div class="metric-value">18,450</div><div class="metric-foot">↗ 12.6% <span>vs previous month</span></div></article>
+ </section>
+ <section class="grid-main">
+  <article class="panel"><div class="panel-title"><div><h3>Portfolio performance</h3><small>Deposits & loan book · illustrative monthly trend</small></div><select class="select" id="period"><option>Last 6 months</option><option>Last 12 months</option></select></div>
+   <div class="chart-wrap"><svg class="chart" viewBox="0 0 640 210" preserveAspectRatio="none" role="img" aria-label="Illustrative deposits and loan portfolio chart">
+    <defs><linearGradient id="areaBlue" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#62aaff" stop-opacity=".24"/><stop offset="1" stop-color="#62aaff" stop-opacity="0"/></linearGradient></defs>
+    <g stroke="#263750" stroke-width="1"><path d="M38 25H625M38 70H625M38 115H625M38 160H625"/></g>
+    <g><text x="0" y="28">160M</text><text x="0" y="73">120M</text><text x="8" y="118">80M</text><text x="8" y="163">40M</text>
+    <text x="42" y="194">JUN</text><text x="150" y="194">JUL</text><text x="260" y="194">AUG</text><text x="370" y="194">SEP</text><text x="480" y="194">OCT</text><text x="585" y="194">NOV</text></g>
+    <path d="M42 125 L150 112 L260 99 L370 83 L480 68 L590 48 L590 170 L42 170Z" fill="url(#areaBlue)"/>
+    <path d="M42 125 L150 112 L260 99 L370 83 L480 68 L590 48" fill="none" stroke="#68a8ff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M42 145 L150 139 L260 126 L370 120 L480 108 L590 96" fill="none" stroke="#55d6cf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <g fill="#68a8ff"><circle cx="42" cy="125" r="3"/><circle cx="150" cy="112" r="3"/><circle cx="260" cy="99" r="3"/><circle cx="370" cy="83" r="3"/><circle cx="480" cy="68" r="3"/><circle cx="590" cy="48" r="3"/></g>
+   </svg></div><div class="legend"><span><i class="dot" style="background:#68a8ff"></i>Deposits</span><span><i class="dot" style="background:#55d6cf"></i>Outstanding loans</span></div>
+  </article>
+  <article class="panel"><div class="panel-title"><div><h3>Loan distribution</h3><small>By product category</small></div><span class="ai-tag">DEMO DATA</span></div><div class="donut-area"><div class="donut"><div class="donut-center"><strong>432</strong><small>ACTIVE LOANS</small></div></div><div class="legend-list"><div class="legend-row"><span><i class="dot" style="background:#62aaff"></i>Personal</span><b>44%</b></div><div class="legend-row"><span><i class="dot" style="background:#55d6cf"></i>Home</span><b>28%</b></div><div class="legend-row"><span><i class="dot" style="background:#f3bd62"></i>Vehicle</span><b>16%</b></div><div class="legend-row"><span><i class="dot" style="background:#34465f"></i>Business</span><b>12%</b></div></div></div></article>
+ </section>
+ <section class="bottom-grid">
+  <article class="panel"><div class="panel-title"><div><h3 id="table-title">Recent transactions</h3><small>Latest activity in the demo environment</small></div><input class="search" id="search" placeholder="⌕  Search activity..." aria-label="Search transactions"></div>
+   <div class="table-wrap"><table><thead><tr><th>CUSTOMER</th><th>REFERENCE</th><th>TYPE</th><th>AMOUNT</th><th>STATUS</th></tr></thead><tbody id="transactions">
+   <tr><td><div class="customer"><span class="initial">AK</span><div><b>Arjun Kumar</b><small>Customer · 100284</small></div></div></td><td>TXN-840291</td><td>Loan repayment</td><td>₹24,500</td><td><span class="status">Completed</span></td></tr>
+   <tr><td><div class="customer"><span class="initial">SP</span><div><b>Sneha Patel</b><small>Customer · 100196</small></div></div></td><td>TXN-840290</td><td>Fund transfer</td><td>₹12,000</td><td><span class="status">Completed</span></td></tr>
+   <tr><td><div class="customer"><span class="initial">RV</span><div><b>Rahul Verma</b><small>Customer · 100352</small></div></div></td><td>TXN-840289</td><td>Loan disbursement</td><td>₹3,50,000</td><td><span class="status pending">Pending</span></td></tr>
+   <tr><td><div class="customer"><span class="initial">ND</span><div><b>Neha Desai</b><small>Customer · 100421</small></div></div></td><td>TXN-840288</td><td>Deposit</td><td>₹75,000</td><td><span class="status">Completed</span></td></tr>
+   <tr><td><div class="customer"><span class="initial">KS</span><div><b>Karan Shah</b><small>Customer · 100508</small></div></div></td><td>TXN-840287</td><td>KYC review</td><td>—</td><td><span class="status review">In review</span></td></tr>
+   </tbody></table></div>
+  </article>
+  <article class="panel"><div class="panel-title"><div><h3>AI-powered insights</h3><small>Sample explainable observations</small></div><span class="ai-tag">AI PREVIEW</span></div>
+   <div class="insight"><div class="insight-icon">✧</div><div><b>Repayment activity is trending up</b><p>Demo repayment volume increased 9.2% compared with the prior period.</p></div></div>
+   <div class="insight"><div class="insight-icon">⌁</div><div><b>Portfolio concentration</b><p>Personal loans represent 44% of this sample portfolio. Monitor concentration thresholds.</p></div></div>
+   <div class="insight"><div class="insight-icon">◷</div><div><b>Operations follow-up</b><p>One sample disbursement is pending. Review its workflow status.</p></div></div>
+  </article>
+ </section>
+ <div class="notice">ⓘ <b>Portfolio demonstration:</b> All names, balances, counts, transactions and insights on this screen are fictional synthetic data. This is not a real banking system and does not provide financial or credit decisions.</div>
+ <footer class="footer"><span>© 2026 FinSight AI · Built as a full-stack banking technology portfolio project</span><span><a href="https://github.com/MURALI9900/finsight-ai" target="_blank" rel="noreferrer">View source on GitHub ↗</a> &nbsp;·&nbsp; Java · Spring Boot · Python · PostgreSQL</span></footer>
+</main></div>
+<script>
+const navButtons=[...document.querySelectorAll('.nav button')];
+const titles={overview:'Banking Overview',customers:'Customer Overview',accounts:'Account Overview',loans:'Loan Portfolio',transactions:'Transaction Monitor',insights:'AI Insights',risk:'Risk Monitor'};
+navButtons.forEach(btn=>btn.addEventListener('click',()=>{navButtons.forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('page-title').textContent=titles[btn.dataset.view];document.getElementById('table-title').textContent=btn.dataset.view==='overview'?'Recent transactions':titles[btn.dataset.view]+' · sample activity';}));
+document.getElementById('search').addEventListener('input',e=>{const q=e.target.value.toLowerCase();document.querySelectorAll('#transactions tr').forEach(r=>r.style.display=r.innerText.toLowerCase().includes(q)?'':'none')});
+document.getElementById('period').addEventListener('change',e=>{document.querySelector('.panel-title small').textContent=e.target.value+' · illustrative monthly trend'});
+document.getElementById('today').textContent=new Intl.DateTimeFormat('en-IN',{day:'2-digit',month:'short',year:'numeric'}).format(new Date());
+</script>
+</body></html>
