@@ -12,7 +12,7 @@ type Section = 'overview' | 'customers' | 'accounts' | 'loans' | 'transactions' 
   imports: [RouterLink],
   template: `
     @if (section === 'overview') {
-      <div class="page-heading"><div><div class="eyebrow">MONITORING CENTER</div><h1>Banking overview</h1><p class="muted">A snapshot of your synthetic banking portfolio, running entirely in your browser.</p></div><div class="heading-actions"><span class="api-status" [class.connected]="apiState === 'connected'">GITHUB PAGES DEMO</span><button class="primary-button" (click)="refresh()">↻ Refresh overview</button></div></div>
+      <div class="page-heading"><div><div class="eyebrow">MONITORING CENTER</div><h1>Banking overview</h1><p class="muted">A snapshot of your synthetic banking portfolio, running entirely in your browser.</p></div><div class="heading-actions"><span class="api-status">GITHUB PAGES DEMO</span><button class="primary-button" (click)="refresh()">↻ Refresh overview</button></div></div>
       <div class="notice"><span>ⓘ</span><div><strong>Portfolio demonstration</strong><p>All figures and records are synthetic. This GitHub Pages demo runs without an external backend or financial institution.</p></div></div>
       <div class="metrics-grid">
         <article class="metric-card"><div class="metric-top"><span>Total customers</span><span class="metric-icon blue">♙</span></div><strong>{{dashboard.totalCustomers.toLocaleString('en-IN')}}</strong><small class="positive">↑ 8.2% <span>vs. previous month</span></small></article>
