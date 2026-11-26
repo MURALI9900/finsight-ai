@@ -1,0 +1,13 @@
+FROM maven:3.9.9-eclipse-temurin-17 AS build
+WORKDIR /workspace
+COPY pom.xml .
+COPY src ./src
+RUN mvn -B clean package -DskipTests
+
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+RUN useradd --system --uid 10001 appuser
+COPY --from=build /workspace/target/finsight-banking-api-0.1.0-SNAPSHOT.jar app.jar
+USER appuser
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
