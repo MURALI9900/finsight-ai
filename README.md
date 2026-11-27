@@ -11,7 +11,7 @@ A portfolio-grade banking analytics application built to demonstrate full-stack 
 - **GitHub Pages:** https://murali9900.github.io/finsight-ai/
 - **Source code:** https://github.com/MURALI9900/finsight-ai
 
-The Angular application is published through the GitHub Pages workflow. The latest frontend build, artifact check and Pages deployment completed successfully in [workflow run #12](https://github.com/MURALI9900/finsight-ai/actions/runs/45941380545).
+The Angular application is published through the GitHub Pages workflow. The latest frontend build, artifact check and Pages deployment completed successfully in [workflow run #13](https://github.com/MURALI9900/finsight-ai/actions/runs/45941730122).
 
 ## Angular frontend
 

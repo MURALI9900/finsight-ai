@@ -49,7 +49,7 @@ Mark work complete only after the implementation and its relevant checks have be
 - [ ] Security and dependency review
 
 ## Milestone 6 — Portfolio delivery
-- [x] Publish the Angular static frontend to GitHub Pages (deployment run #12 succeeded)
+- [x] Publish the Angular static frontend to GitHub Pages (deployment run #13 succeeded)
 - [ ] Capture screenshots
 - [ ] Prepare a short project walkthrough
 - [ ] Publish a LinkedIn project post
