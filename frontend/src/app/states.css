@@ -1,0 +1,15 @@
+/* Shared accessible states for future API-backed views and current empty results. */
+.skip-link{position:absolute;left:16px;top:-60px;z-index:100;padding:10px 14px;border-radius:7px;background:#e8f3ff;color:#10233b;font-size:12px;font-weight:700;box-shadow:0 4px 18px #0008}
+.skip-link:focus{top:12px}
+:focus-visible{outline:2px solid #83c4ff;outline-offset:3px}
+.state-panel{display:flex;align-items:center;gap:13px;max-width:560px;margin:10px auto;padding:18px 16px;border:1px dashed #344a68;border-radius:9px;background:#0e1a2b;color:#c7d5e8;text-align:left}
+.state-icon{width:34px;height:34px;flex:none;display:grid;place-items:center;border-radius:10px;background:#203958;color:#8fc7ff;font-size:20px;font-weight:700}
+.state-copy h3{margin:0;color:#e7effa;font-size:11px;font-weight:700}
+.state-copy p{margin:5px 0 0;color:#8fa2bd;font-size:10px;line-height:1.6}
+.state-action{margin-top:9px;border:1px solid #42658d;border-radius:6px;background:#1a3553;color:#b8d9ff;padding:7px 10px;font-size:10px;font-weight:700;cursor:pointer}
+.state-action:hover{background:#23466d}
+.state-panel.state-error{border-color:#70404a;background:#271b27}
+.state-panel.state-error .state-icon{background:#4b2932;color:#ffb0b7}
+.state-panel.state-loading .state-icon{animation:fs-spin 1s linear infinite}
+@keyframes fs-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.state-panel.state-loading .state-icon{animation:none}}

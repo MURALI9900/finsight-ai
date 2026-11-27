@@ -33,9 +33,14 @@ jobs:
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm install
+      - name: Run frontend data tests
+        working-directory: frontend
+        run: npm test
       - name: Build Angular application
         working-directory: frontend
         run: npm run build
+      - name: Verify Pages artifact entry point
+        run: test -f frontend/dist/finsight-frontend/browser/index.html
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload Angular site artifact

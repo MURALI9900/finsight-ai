@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   frontend:
-    name: Angular production build
+    name: Angular production build and data tests
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,6 +25,9 @@ jobs:
       - name: Install frontend dependencies
         working-directory: frontend
         run: npm install
+      - name: Run frontend data tests
+        working-directory: frontend
+        run: npm test
       - name: Build Angular application
         working-directory: frontend
         run: npm run build
