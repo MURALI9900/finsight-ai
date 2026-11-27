@@ -22,9 +22,12 @@ Mark work complete only after the implementation and its relevant checks have be
 - [x] Loan portfolio summary
 - [x] Transactions view and search
 - [x] AI Assistant preview with local sample responses
-- [ ] Add fuller loading, empty and error states across all screens
+- [x] Add reusable accessible loading, empty and error state presentation
+- [x] Show actionable empty states when customer or transaction searches return no matches
+- [x] Add frontend data and search helper tests using Node.js built-in test runner
+- [x] Verify Angular production build, Pages artifact entry point and deployment workflow in GitHub Actions
 - [ ] Add focused Angular component and routing tests
-- [ ] Verify the Angular GitHub Pages deployment and live URL
+- [ ] Manually review every route and responsive layout in a browser
 
 ## Milestone 3 — Banking API
 - [ ] Account summary endpoint
@@ -46,7 +49,8 @@ Mark work complete only after the implementation and its relevant checks have be
 - [ ] Security and dependency review
 
 ## Milestone 6 — Portfolio delivery
-- [ ] Verify deployment and capture screenshots
+- [x] Publish the Angular static frontend to GitHub Pages (deployment run #12 succeeded)
+- [ ] Capture screenshots
 - [ ] Prepare a short project walkthrough
 - [ ] Publish a LinkedIn project post
 
